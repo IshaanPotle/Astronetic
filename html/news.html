@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Astronomy Picture of the day</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="/css/mdbcss/mdb.min.css" />
+  </head>
+  <body style="background-color: black;">
+    <!-- Start your project here-->
+    <div class="container my-5">
+      <!-- Section: Intro -->
+      <section class="text-center mb-4">
+        <h4 class="mb-4">
+          <strong
+            >Space News Today</strong
+          >
+        </h4>
+    
+      </section>
+      <!-- Section: Intro -->
+    
+      <!-- Section: Demo -->
+      <section class="mb-4">
+        <!-- Section: Date -->
+        <section class="mb-4">
+          <!-- Datepicker -->
+          <div
+            class="form-outline datepicker"
+            data-mdb-toggle-button="true"
+            data-mdb-format="yyyy-mm-dd"
+            id="date-picker"
+          >
+            <input
+              
+              class="form-control"
+              id="wrapper-date"
+              data-mdb-toggle="datepicker"
+              value=""
+            />
+            
+          </div>
+        </section>
+        <!-- Section: Date -->
+    
+      </section>
+      <!-- Section: Demo -->
+      
+      <hr class="my-5">
+    
+      <!-- Section: Credits -->
+    </div>
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="../html/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript">
+    function spaceFlight() {
+      let xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let data = JSON.parse(this.responseText);
+    
+          // Data from NASA API json
+          let id = data["id"];
+          let title = data["title"];
+          let url = data["url"];
+          let imageUrl = data["imageUrl"];
+          let newsSite = data["newsSite"];
+          let summary = data["summary"];
+          let publishedAt = data["publishedAt"];
+    
+          // HTML markup for images and videos
+        
+    
+          // Static elements
+          document.getElementById("wrapper-title").innerHTML = title;
+          document.getElementById(
+            "wrapper-explanation"
+          ).innerHTML = summary;
+          document.getElementById("wrapper-copyright").innerHTML = copyright;
+          document.getElementById("intro-date").innerHTML = publishedAt;
+    
+          document.getElementById("wrapper-media").innerHTML = imageType;
+          document.getElementById("wrapper-image").src = imageUrl;
+          
+        }
+      };
+      // Acessing a value from the date picker
+      let datepicker_date = document.getElementById("wrapper-date").value;
+      // NASA API link
+      let queryUrl = "https://api.spaceflightnewsapi.net/v3?";
+      // API KEY
+      // Selected date
+      let queryDate = "date=" + publishedAt + "&";
+      // Full query
+      let queryFull = queryUrl;
+    
+      xmlhttp.open("GET", queryFull, true);
+      xmlhttp.send();
+    }
+    
+    // Datepicker init
+    const datePicker = document.getElementById("date-picker");
+    // Call nasaRequest on date change
+    datePicker.addEventListener("dateChange.mdb.datepicker", (e) => {
+      spaceFlight();
+    });
+    
+    // Initial call on page load
+    spaceFlight().onload;
+  </script>
+  </body>
+</html>
