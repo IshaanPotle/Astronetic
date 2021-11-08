@@ -30,96 +30,94 @@
     
       </section>
       <!-- Section: Intro -->
-    
-      <!-- Section: Demo -->
-      <section class="mb-4">
-        <!-- Section: Date -->
-        <section class="mb-4">
-          <!-- Datepicker -->
-          <div
-            class="form-outline datepicker"
-            data-mdb-toggle-button="true"
-            data-mdb-format="yyyy-mm-dd"
-            id="date-picker"
-          >
-            <input
-              
-              class="form-control"
-              id="wrapper-date"
-              data-mdb-toggle="datepicker"
-              value=""
-            />
-            
-          </div>
-        </section>
-        <!-- Section: Date -->
-    
-      </section>
-      <!-- Section: Demo -->
-      
-      <hr class="my-5">
-    
-      <!-- Section: Credits -->
     </div>
+
+    <section class="mb-4">
+      <!-- Section: Date -->
+      <section class="mb-4">
+        <!-- Datepicker -->
+        <div
+          class="form-outline datepicker"
+          data-mdb-toggle-button="true"
+          data-mdb-format="yyyy-mm-dd"
+          id="date-picker"
+        >
+          <input
+            
+            class="form-control"
+            id="wrapper-date"
+            data-mdb-toggle="datepicker"
+            value=""
+          />
+          
+        </div>
+      </section>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <!-- Section: Description -->
+        <section class="">
+          <h5 id="wrapper-title"></h5>
+          
+          <p id="wrapper-explanation"></p>
+        </section>
+        <!-- Section: Description -->
+      </div>
     <!-- End your project here-->
 
     <!-- MDB -->
     <script type="text/javascript" src="../html/mdb.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript">
-    function spaceFlight() {
+    function spaceFlight(){
+      space = [];      
       let xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          let data = JSON.parse(this.responseText);
+          let space = JSON.parse(this.responseText);
     
           // Data from NASA API json
-          let id = data["id"];
-          let title = data["title"];
-          let url = data["url"];
-          let imageUrl = data["imageUrl"];
-          let newsSite = data["newsSite"];
-          let summary = data["summary"];
-          let publishedAt = data["publishedAt"];
-    
-          // HTML markup for images and videos
-        
-    
-          // Static elements
+          let id = space[0]["id"];
+          let title = space[0]["title"];
+          let url = space[0]["url"];
+          let imageUrl = space[0]["imageUrl"];
+          let newsSite = space[0]["newsSite"];
+          let summary = space[0]["summary"];
+          let publishedAt = space[0]["publishedAt"];
+          let updatedAt = space[0]["updatedAt"];
+          let featured = space[0]["featured"];
+          let launches = space[0]["launches"];
+          console.log(space[0]["id"]);
+          console.log(space[0]["title"]);
+          console.log(space[0]["url"]);
+          console.log(space[0]["imageUrl"]);
+          console.log(space[0]["newsSite"]);
+          console.log(space[0]["summary"]);
+          console.log(space[0]["publishedAt"]);
+          console.log(space[0]["updatedAt"]);
+          console.log(space[0]["featured"]);
+          console.log(space[0]["launches"]);
+
           document.getElementById("wrapper-title").innerHTML = title;
-          document.getElementById(
-            "wrapper-explanation"
-          ).innerHTML = summary;
-          document.getElementById("wrapper-copyright").innerHTML = copyright;
-          document.getElementById("intro-date").innerHTML = publishedAt;
-    
-          document.getElementById("wrapper-media").innerHTML = imageType;
-          document.getElementById("wrapper-image").src = imageUrl;
+          
+          
+
+        
           
         }
-      };
+      }
+
       // Acessing a value from the date picker
-      let datepicker_date = document.getElementById("wrapper-date").value;
       // NASA API link
-      let queryUrl = "https://api.spaceflightnewsapi.net/v3?";
-      // API KEY
-      // Selected date
-      let queryDate = "date=" + publishedAt + "&";
-      // Full query
-      let queryFull = queryUrl;
+      let queryUrl = "https://api.spaceflightnewsapi.net/v3/articles";
     
-      xmlhttp.open("GET", queryFull, true);
+      xmlhttp.open("GET", queryUrl, true);
       xmlhttp.send();
     }
-    
-    // Datepicker init
     const datePicker = document.getElementById("date-picker");
     // Call nasaRequest on date change
     datePicker.addEventListener("dateChange.mdb.datepicker", (e) => {
       spaceFlight();
     });
-    
-    // Initial call on page load
+
     spaceFlight().onload;
   </script>
   </body>
