@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/landingpage.css">
+    <link rel="stylesheet" type="text/css" href="../css/arrowbutton.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <title>Astronetic</title>
+    <h1 style="color: aliceblue;font-size: 60px; font-family: 'Exo 2', sans-serif;margin-left: 40px; ">Astronetic</h1>
+
+    <div class="a"> <!--This div runs the astronaut -->
+        <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_kw2yp643.json"  background="#000000"  speed="1"  style="width: 400px; height: 400px;"  loop  autoplay></lottie-player>
+    </div>
+
+    <div class="round" onclick="myFunction()">
+        <div id="cta">
+            <span class="arrow primera next "></span>
+            <span class="arrow segunda next "></span>   
+        </div>
+    </div>
+    
+    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_wfjd15az.json"  background="#000000"  speed="1"  style="width: 1536px; height: 818px;position: sticky;"  loop  autoplay></lottie-player>
+    <!--Upper line runs the main space animation -->
+</body>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> <!--This script runs lottie player -->
+<script>                                    
+    function myFunction() {                    /* Basic onclick function to redirect to another page */
+      window.open("../html/login.html");      
+      }
+    </script>
+    
+</html>
