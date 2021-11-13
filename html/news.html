@@ -17,7 +17,7 @@
     <!-- MDB -->
     <link rel="stylesheet" href="/css/mdbcss/mdb.min.css" />
   </head>
-  <body style="background-color: black;">
+  <body style="background-color: black; overflow-x: hidden;">
     <!-- Start your project here-->
     <div class="container my-5">
       <!-- Section: Intro -->
@@ -32,31 +32,12 @@
       <!-- Section: Intro -->
     </div>
 
-    <section class="mb-4">
-      <!-- Section: Date -->
-      <section class="mb-4">
-        <!-- Datepicker -->
-        <div
-          class="form-outline datepicker"
-          data-mdb-toggle-button="true"
-          data-mdb-format="yyyy-mm-dd"
-          id="date-picker"
-        >
-          <input
-            
-            class="form-control"
-            id="wrapper-date"
-            data-mdb-toggle="datepicker"
-            value=""
-          />
-          
-        </div>
-      </section>
-
       <div class="row">
-        <div class="col-md-8 mb-4 mb-md-0">
+        <div class="col-md-8 mb- mb-md-0">
           <!-- Section: Media -->
-          <section id="wrapper-media" class=""></section>
+          <section id="wrapper-media" class="">
+            
+          </section>
           <!-- Section: Media -->
         </div>
 
@@ -64,7 +45,6 @@
         <!-- Section: Description -->
         <section class="">
           <h5 id="wrapper-title"></h5>
-          
           <p id="wrapper-explanation"></p>
         </section>
         <!-- Section: Description -->
@@ -90,27 +70,15 @@
           let newsSite = space[0]["newsSite"];
           let summary = space[0]["summary"];
           let media_type = space[0]["media_type"];
-          let publishedAt = space[0]["publishedAt"];
-          let updatedAt = space[0]["updatedAt"];
-          let featured = space[0]["featured"];
-          let launches = space[0]["launches"];
-          console.log(space[0]["id"]);
-          console.log(space[0]["title"]);
-          console.log(space[0]["url"]);
-          console.log(space[0]["imageUrl"]);
-          console.log(space[0]["newsSite"]);
-          console.log(space[0]["summary"]);
-          console.log(space[0]["publishedAt"]);
-          console.log(space[0]["updatedAt"]);
-          console.log(space[0]["featured"]);
-          console.log(space[0]["launches"]);
+         console.log(url)
+         console.log(imageUrl)
 
           let imageType = `
             <div
               class="bg-image hover-overlay ripple shadow-1-strong rounded"
               data-ripple-color="light"
             >
-              <img id="wrapper-image" src="" class="w-100" />
+              <img id="wrapper-image" src="" class="w-50" />
               <a id="wrapper-imageUrl" href="" target="_blank">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
               </a>
@@ -132,7 +100,7 @@
           document.getElementById(
             "wrapper-explanation"
           ).innerHTML = summary;
-          document.getElementById("intro-date").innerHTML = publishedAt;
+         
           
           if (media_type === "video") {
             document.getElementById("wrapper-media").innerHTML = videoType;
