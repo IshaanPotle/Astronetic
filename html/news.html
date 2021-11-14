@@ -97,19 +97,11 @@
             `;
 
           document.getElementById("wrapper-title").innerHTML = title;
-          document.getElementById(
-            "wrapper-explanation"
-          ).innerHTML = summary;
-         
-          
-          if (media_type === "video") {
-            document.getElementById("wrapper-media").innerHTML = videoType;
-            document.getElementById("wrapper-video").src = url;
-          } else {
-            document.getElementById("wrapper-media").innerHTML = imageType;
-            document.getElementById("wrapper-image").src = url;
-            document.getElementById("wrapper-imageUrl").href = imageUrl;
-          }
+          document.getElementById("wrapper-explanation").innerHTML = summary;
+
+          document.getElementById("wrapper-media").innerHTML = imageType;
+          document.getElementById("wrapper-image").src = imageUrl;
+          document.getElementById("wrapper-imageUrl").href = url;    
         }
         };
 
