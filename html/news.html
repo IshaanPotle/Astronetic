@@ -4,56 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>SpaceNews</title>
-    <!-- MDB icon -->
+    <title>Space News Today</title>
     <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
-    <!-- Google Fonts Roboto -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
-    <!-- MDB -->
+   
     <link rel="stylesheet" href="/css/mdbcss/mdb.min.css" />
   </head>
-  <body style="background-color: black; overflow-x: hidden;">
-    <!-- Start your project here-->
-    <div class="container my-5">
-      <!-- Section: Intro -->
-      <section class="text-center mb-4">
-        <h4 class="mb-4">
-          <strong
-            >Space News Today</strong
-          >
-        </h4>
+  <body style="background-color: black; overflow: hidden;">
     
+    <div class="container my-5">
+      <section class="text-center mb-4">
+        <h4 class="mb-6">
+          <strong style="color: white;">Space Highlights Today</strong>
+        </h4>
       </section>
-      <!-- Section: Intro -->
+      
+    </div>
+      <div class="row">
+        <div class="col-md-8" style="margin: 10px;">
+          <section id="wrapper-media" class=""></section>
     </div>
 
-      <div class="row">
-        <div class="col-md-8 mb- mb-md-0">
-          <!-- Section: Media -->
-          <section id="wrapper-media" class="">
-            
-          </section>
-          <!-- Section: Media -->
-        </div>
-
-      <div class="col-md-4 mb-4 mb-md-0">
-        <!-- Section: Description -->
+      <div class="col-md-3">
         <section class="">
-          <h5 id="wrapper-title"></h5>
-          <p id="wrapper-explanation"></p>
+          <h5 id="title" style="margin-left: -200px;font-size: 30px;"></h5>
+          <p id="explanation" style="margin-left: -200px; margin-top: 50px; font-size: 25px;"></p>
         </section>
-        <!-- Section: Description -->
       </div>
-    <!-- End your project here-->
 
-    <!-- MDB -->
     <script type="text/javascript" src="../html/mdb.min.js"></script>
-    <!-- Custom scripts -->
     <script type="text/javascript">
     function spaceFlight(){
       space = [];      
@@ -74,39 +57,21 @@
          console.log(imageUrl)
 
           let imageType = `
-            <div
-              class="bg-image hover-overlay ripple shadow-1-strong rounded"
-              data-ripple-color="light"
-            >
-              <img id="wrapper-image" src="" class="w-50" />
-              <a id="wrapper-imageUrl" href="" target="_blank">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+            <div>
+              <img id="wrapper-image" src="" class="w-75" style="margin-left: 60px" />
+              <a id="wrapper-imageUrl" href="" target="_blank">          
               </a>
             </div>
             `;
-          let videoType = `
-            <div class="ratio ratio-16x9">
-              <iframe
-                class="shadow-1-strong rounded"
-                id="wrapper-video"
-                src=""
-                title="YouTube video"
-                allowfullscreen
-              ></iframe>
-            </div>
-            `;
 
-          document.getElementById("wrapper-title").innerHTML = title;
-          document.getElementById("wrapper-explanation").innerHTML = summary;
+          document.getElementById("title").innerHTML = title;
+          document.getElementById("explanation").innerHTML = summary;
 
           document.getElementById("wrapper-media").innerHTML = imageType;
           document.getElementById("wrapper-image").src = imageUrl;
           document.getElementById("wrapper-imageUrl").href = url;    
         }
         };
-
-      // Acessing a value from the date picker
-      // NASA API link
       let queryUrl = "https://api.spaceflightnewsapi.net/v3/articles";
       xmlhttp.open("GET", queryUrl, true);
       xmlhttp.send();
